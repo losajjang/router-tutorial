@@ -2,6 +2,7 @@ import React from 'react';
 import {Link, Route, Routes} from 'react-router-dom';
 import About from './About';
 import Home from './Home';
+import Profile from './Profile';
 
 function App() {
   return (
@@ -15,8 +16,9 @@ function App() {
         </li>
       </ul>
       <Routes>
-        <Route path="/" element={<Home />} exact={true} />
-        <Route path="/about" element={<About />} exact={true} />
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/profiles/:username" element={<Profile />} />
       </Routes>
     </div>
   );
