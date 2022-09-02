@@ -1,6 +1,7 @@
 import React from 'react';
-import {Link, Route, Routes} from 'react-router-dom';
+import {Link, NavLink, Route, Routes} from 'react-router-dom';
 import Profile from './Profile';
+import WithRouterSample from './WithRouterSample';
 
 const Profiles = () => {
   return (
@@ -8,16 +9,37 @@ const Profiles = () => {
       <h3>유저 목록:</h3>
       <ul>
         <li>
-          <Link to="/profiles/pjm">pjm</Link>
+          <NavLink
+            to="/profiles/pjm"
+            style={({isActive}) => ({
+              color: isActive ? 'white' : 'black',
+              background: isActive ? 'red' : 'white',
+              fontWeight: isActive ? 'bold' : '',
+              fontSize: isActive ? '20px' : '',
+            })}
+          >
+            pjm
+          </NavLink>
         </li>
         <li>
-          <Link to="/profiles/psy">psy</Link>
+          <NavLink
+            to="/profiles/psy"
+            style={({isActive}) => ({
+              color: isActive ? 'white' : 'black',
+              background: isActive ? 'red' : 'white',
+              fontWeight: isActive ? 'bold' : '',
+              fontSize: isActive ? '20px' : '',
+            })}
+          >
+            psy
+          </NavLink>
         </li>
       </ul>
       <Routes>
         <Route path="/" element={'유저를 선택해 주세요'} />
         <Route path=":username" element={<Profile />} />
       </Routes>
+      <WithRouterSample />
     </div>
   );
 };
